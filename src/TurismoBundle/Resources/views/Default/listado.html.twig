@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block cuerpo %}{% endblock %}
+
+{% block listado %}
+{% for turismo in turismos %}
+<h2>{{ turismo.ciudad }}</h2>
+<p>{{turismo.localizacion}}</p>
+<p>{{turismo.fechaEntrada|date('Y-m-d')}}</p>
+<p>{{turismo.fechaSalida|date('Y-m-d')}}</p>
+<p><a href="{{ path('borrar', {'id': turismo.id}) }}"> Borrar </a>
+<p><a href="{{ path('editar', {'id': turismo.id}) }}">Actualizar</a></p>
+{% endfor %}
+{% endblock %}
